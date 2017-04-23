@@ -1,8 +1,18 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import { shallow }  from 'enzyme';
+import { App } from './App'
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
+
+function setup() {
+
+  const enzymeWrapper = shallow(<App />)
+
+  return {
+    enzymeWrapper
+  }
+}
+
+it('App component renders without crashing', () => {
+  const { enzymeWrapper } = setup()
+  expect(enzymeWrapper).toHaveLength(1);
 });

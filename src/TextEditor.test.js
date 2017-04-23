@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom';
 import TextEditor from './TextEditor';
 
 describe('TextEditor Setup', () => {
-	test('renders without crashing', () => {
+	it('renders without crashing', () => {
 	  const div = document.createElement('div');
 	  ReactDOM.render(<TextEditor />, div);
 	});
 
-	test('checks initial state', () => {
+	it('checks initial state', () => {
 	  const div = document.createElement('div');
 	  //const element = (<TextEditor />);
 	  const element = ReactDOM.render(<TextEditor />, div);

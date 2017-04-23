@@ -21,7 +21,7 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-class App extends Component {
+export class App extends Component {
   compileCode = () => {
     //This function should dispatch an event to TextEditor, get its content and combine scripts
     console.log('Button was clicked, with this context as:', this);
