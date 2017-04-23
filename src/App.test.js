@@ -1,18 +1,24 @@
 import React from 'react';
 import { shallow }  from 'enzyme';
-import { App } from './App'
+import ReactDOM from 'react-dom';
+import connectedApp, { App } from './App'
 
 
 function setup() {
 
-  const enzymeWrapper = shallow(<App />)
+  const appWrapper = shallow(<App />)
+  const connectedAppWrapper = shallow(<connectedApp />)
 
   return {
-    enzymeWrapper
+    appWrapper,
+    connectedAppWrapper
   }
 }
 
-it('App component renders without crashing', () => {
-  const { enzymeWrapper } = setup()
-  expect(enzymeWrapper).toHaveLength(1);
+describe('App smoke tests', () => {
+	let { appWrapper, connectedAppWrapper } = setup()
+	it('App component renders without crashing', () => {  
+	  expect(appWrapper).toHaveLength(1);
+	});
+
 });

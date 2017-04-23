@@ -1,6 +1,5 @@
 import * as command from './actions'
 
-
 let dummycode = `var Cylon = require('cylon');\n\nCylon.start();`
 
 const deafaultState = {

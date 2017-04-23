@@ -204,16 +204,16 @@ const arduinoCylon = function(script_data) {
 
 		//Remove the existing script tag
 		let script_el = document.getElementById('arduinoCylonScriptCombined');
-		script_el.remove(); 
-
 		//Create new script element and set it to the script_data and append to head
-		script_el = document.createElement('script');
-		script_el.setAttribute("id", "arduinoCylonScriptCombined");
-		script_el.defer = true;
+		if (!script_el){
+			script_el = document.createElement('script');
+			script_el.setAttribute("id", "arduinoCylonScriptCombined");
+			script_el.defer = true;
+		}
 		// Have to use .text, since we support IE8,
 		// which won't allow appending to a script
 		script_el.text = script_data;
-		head.appendChild( script_el );
+		head.appendChild(script_el);
 };
 
 
