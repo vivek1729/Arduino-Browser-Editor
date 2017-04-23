@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import TextEditor from './TextEditor';
-import { buttonPressed } from './actions';
+import { buttonPressed, compileStart } from './actions';
 import { connect } from 'react-redux';
 
 
@@ -10,11 +10,22 @@ const mapStateToProps = (state) => {
   return state;
 };
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    codeChange: (newCode) => {
+      dispatch(compileStart(newCode))
+    },
+    buttonPress: (text) => {
+      dispatch(buttonPressed(text))
+    }
+  }
+}
+
 class App extends Component {
   compileCode = () => {
     //This function should dispatch an event to TextEditor, get its content and combine scripts
     console.log('Button was clicked, with this context as:', this);
-    this.props.dispatch(buttonPressed(this.props.code));
+    this.props.buttonPress(this.props.code);
   }
 
   render() {
@@ -24,7 +35,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to React</h2>
         </div>
-        <TextEditor code={this.props.code} dispatch={this.props.dispatch}/>
+        <TextEditor code={this.props.code} codeChange={this.props.codeChange}/>
         <button onClick={this.compileCode}>
           Flash to Arduino
         </button>
@@ -36,4 +47,4 @@ class App extends Component {
   }
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps,mapDispatchToProps)(App);

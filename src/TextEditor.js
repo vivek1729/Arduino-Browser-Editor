@@ -3,7 +3,6 @@ import CodeMirror from 'react-codemirror'
 import 'codemirror/mode/javascript/javascript';
 import 'codemirror/lib/codemirror.css'
 import './material.css';
-import { compileStart } from './actions';
 
 class TextEditor extends Component {
   constructor(props) {
@@ -12,9 +11,8 @@ class TextEditor extends Component {
   }
 
   updateCode = (newCode) => {
-    //Dispatch event for newCode, update state and stuff
-
-    this.props.dispatch(compileStart(newCode));
+    //Dispatch event for newCode, update state and stuff through the prop function
+    this.props.codeChange(newCode);
   }
 
   render() {
