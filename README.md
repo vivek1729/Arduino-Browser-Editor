@@ -9,7 +9,7 @@ I have started this project using React and am learning it as I develop more fea
 
 
 # Goals
-~~* Unit tests! Want to write unit tests for all components (Almost done)~~
-~~* Need to port Basket entirely using Chrome API's (Major re-write)~~
+* ~~Unit tests! Want to write unit tests for all components (Almost done)~~
+* ~~Need to port Basket entirely using Chrome API's (Major re-write)~~
 * Wire Up Chrome API's and get initial functionality
 * `Basket.js` is currently distributed on CDN and doesn't have a registry on NPM (:/) and the code is also pretty ancient. I plan to write a node module and push it to NPM.
